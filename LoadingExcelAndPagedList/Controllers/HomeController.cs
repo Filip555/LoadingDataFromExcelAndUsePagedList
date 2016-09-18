@@ -29,7 +29,6 @@ namespace LoadingExcelAndPagedList.Controllers
                 {
                     list.Add(new Example()
                     {
-                        ID = int.Parse(current.Cells[i, 1].Value.ToString()),
                         Question = current.Cells[i, 2].Value.ToString(),
                         Answer = current.Cells[i, 3].Value.ToString()
                     });
@@ -41,7 +40,6 @@ namespace LoadingExcelAndPagedList.Controllers
     }
     public class Example
     {
-        public int ID { get; set; }
         public string Question { get; set; }
         public string Answer { get; set; }
     }
