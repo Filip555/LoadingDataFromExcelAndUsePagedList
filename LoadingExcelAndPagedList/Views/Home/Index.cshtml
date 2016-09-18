@@ -1,0 +1,31 @@
+﻿@model PagedList<LoadingExcelAndPagedList.Controllers.Example>
+@using PagedList.Mvc;
+@using PagedList;
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-striped" id="test">
+    <tr>
+        <th>
+            Question
+        </th>
+        <th>
+            Answer
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Question)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer)
+            </td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager(Model, pageNumber => Url.Action("Index",
+    new { pageNumber, pageSize = Model.PageSize }))
